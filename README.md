@@ -12,4 +12,4 @@ Using R code this repository Scrapes the top 20 SA singles hits data from and SA
  * stringr to manipulate the strings
  * readtext to write the data to the csv file
 
-See the repository MusicHitsAnimated for an animated graph of the hot parade.
+See the repository MusicHitsAnimated for an animated graph of the hit parade.

@@ -18,7 +18,6 @@ pages_per_week <- function(hit_year, year_url){
   year_page_html <- html_nodes(sacharts_webpage, ".listing-item")
   year_page_href <- html_attr(html_children(year_page_html),"href")
   year_page <- html_text(year_page_html)
-  
   year_week_and_page <- data.table(hit_year = hit_year, week = year_page,page = year_page_href)
   year_week_and_page <- year_week_and_page[str_sub(year_week_and_page$week,start=-4)==hit_year]
   return (year_week_and_page)
@@ -26,8 +25,6 @@ pages_per_week <- function(hit_year, year_url){
  
 hits_per_week <- function(hit_week, week_url){
   #Get hits for the week
-  #weeklyhits.dt <- data.table(Pos=numeric(20), LW=numeric(20), Weeks=numeric(20),Song=character(20), Artist=character(20), hit_week=rep(Sys.time(),20))
-  
   webpage <- read_html(week_url)
   table_html <- html_nodes(webpage, "table")
   hit_table <- as.data.table(html_table(table_html))

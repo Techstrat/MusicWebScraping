@@ -2,8 +2,9 @@ library(rvest)
 library(data.table)
 library(stringr)
 library(readtext)
+#load web scraping functions
 
-file_dir <- "H:/Techstrat/Projects/Created/Music web scraping"
+file_dir <- getwd()
 
 #Get the list of year hit pages
 yearpages.dt <- pages_per_year("https://sacharts.wordpress.com")
@@ -30,17 +31,14 @@ rm(l)
 
 #Save to file
 writeTofile(weeklyhits.dt,"weeklyhits.csv",file_dir)
-#Read from file
-weeklyhits.dt <- readTextFile("weeklyhits.csv",file_dir)
 
-
-### Test
-#no headers
-week_url <- "https://sacharts.wordpress.com/2016/02/14/8-august-1969-2/"
-dt <- hits_per_week("1969","8-august-1969",week_url)
-#with headers
-week_url <- "https://sacharts.wordpress.com/2016/02/12/1-august-1969-2/"
-dt <- hits_per_week("1969","1-august-1969",week_url)
-#with extra columns
-week_url <- "https://sacharts.wordpress.com/2018/04/02/3-december-1976/"
-dt <- hits_per_week("1976","3-december-1976",week_url)
+### Tests for special cases
+##  no headers
+#week_url <- "https://sacharts.wordpress.com/2016/02/14/8-august-1969-2/"
+#test1.dt <- hits_per_week("1969","8-august-1969",week_url)
+##  with headers
+#week_url <- "https://sacharts.wordpress.com/2016/02/12/1-august-1969-2/"
+#test2.dt <- hits_per_week("1969","1-august-1969",week_url)
+##  with extra columns
+#week_url <- "https://sacharts.wordpress.com/2018/04/02/3-december-1976/"
+#test3.dt <- hits_per_week("1976","3-december-1976",week_url)
